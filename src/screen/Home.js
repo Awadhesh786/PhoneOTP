@@ -11,12 +11,10 @@ export default function() {
   const [loggedAccount, setLoggedAccount] = useState(null)
 
   async function configureAccountKit() {
-    console.log('jpg Authenticated', Authenticated)
-    console.log('jpg NotAuthenticated', NotAuthenticated)
     AccountKit.configure({
-      defaultCountry: 'AR',
-      initialEmail: 'username@example.com',
-      initialPhoneCountryPrefix: '+54',
+      defaultCountry: 'IN',
+      initialEmail: '',
+      initialPhoneCountryPrefix: '+91',
     })
   }
 
