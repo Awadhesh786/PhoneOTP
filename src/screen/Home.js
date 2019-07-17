@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, View, ActivityIndicator, Alert } from 'react-native'
-import AccountKit from 'react-native-facebook-account-kit'
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, ActivityIndicator, Alert, StatusBar } from 'react-native';
+import AccountKit from 'react-native-facebook-account-kit';
+import colors from '../component/Colors';
 
-import NotAuthenticated from '../component/NotAuthenticated'
-import Authenticated from '../component/Authenticated'
+import NotAuthenticated from '../component/NotAuthenticated';
+import Authenticated from '../component/Authenticated';
+
+import IndiaHome from '../screen/IndiaHome';
 
 export default function() {
+
+  navigationOptions = {
+    headerMode: 'none'
+  }
+  
   const [loading, setLoading] = useState(true)
   const [authToken, setAuthToken] = useState(null)
   const [loggedAccount, setLoggedAccount] = useState(null)
@@ -83,7 +91,14 @@ export default function() {
   }, [])
 
   return (
+    
     <View style={styles.container}>
+      <StatusBar 
+        barStyle = "dark-content" 
+        //hidden = {false} 
+        backgroundColor = {colors.statubar}
+        //translucent = {true}
+        />
       {loading && <ActivityIndicator size="large" />}
 
       {!loading && !loggedAccount && (
@@ -94,7 +109,8 @@ export default function() {
       )}
 
       {!loading && loggedAccount && (
-        <Authenticated token={authToken} user={loggedAccount} onLogoutPress={handleLogoutPress} />
+        <Authenticated token={authToken} user={loggedAccount} onLogoutPress={handleLogoutPress} />,
+        <IndiaHome />
       )}
     </View>
   )
@@ -105,5 +121,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.statubar
   },
 })
