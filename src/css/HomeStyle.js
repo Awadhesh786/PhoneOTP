@@ -1,7 +1,11 @@
+import colors from '../component/Colors';
 module.exports = {
     container: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        justifyContent: 'center',
+        //alignItems: 'center',
+        //backgroundColor: colors.statubar
        },
       loader:{
         flex: 1,
@@ -18,7 +22,8 @@ module.exports = {
            backgroundColor: '#fff', 
            margin:4,
            padding:5, 
-           elevation:5
+           elevation:5,
+           borderRadius: 4,
         },
         header : {
             flexDirection:"row", 

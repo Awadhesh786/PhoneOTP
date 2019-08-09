@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, ActivityIndicator, Alert } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, Alert, NativeModules,BackAndroid } from 'react-native';
 import AccountKit from 'react-native-facebook-account-kit';
 
 import NotAuthenticated from '../component/NotAuthenticated';
@@ -60,7 +60,7 @@ export default function(){
       
             if (!token) {
               Alert.alert('User cancelled the login with email action!')
-              return
+              
             }
       
             setAuthToken(token)
@@ -73,9 +73,13 @@ export default function(){
       
         async function handleLogoutPress() {
           try {
+            
+            //BackAndroid.exitApp();
+
             await AccountKit.logout()
             setAuthToken(null)
             setLoggedAccount(null)
+            
           } catch (err) {
             Alert.alert(`Failed to logout ${err.message}`)
           }
@@ -110,8 +114,7 @@ export default function(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    
-  },
+    justifyContent: 'center',
+    alignContent: 'center'
+  }
 })

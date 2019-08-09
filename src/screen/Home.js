@@ -71,6 +71,7 @@ export default function() {
       setAuthToken(token)
       getCurrentUser()
     } catch (err) {
+      return function getCurrentAccessToken(){},
       Alert.alert(`Failed to login with email ${err.message}`)
     }
   }

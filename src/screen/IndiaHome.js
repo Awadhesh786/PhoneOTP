@@ -131,9 +131,9 @@ class Home extends React.Component {
             style={{height:23, width:23}} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={{width:"75%"}}>
+          <View style={{width:"75%"}}>
           <Text style={{ fontSize:20, fontWeight:"bold",color:"white", padding:14, textAlign:"center"}}>India Jobs</Text>
-          </TouchableOpacity>
+          </View>
         </View>
 
         <FlatList
